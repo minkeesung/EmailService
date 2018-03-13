@@ -15,12 +15,15 @@ passport.deserializeUser((id, done) => {
   });
 });
 
+// clientID is a public token, identify our application to google servers
+// clientsecret is secure piece of information, if someone has access they have more access to code?
+
 passport.use(
   new GoogleStrategy(
     {
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
-      callbackURL: '/auth/google/callback',
+      callbackURL: '/auth/google/callback',  // route user is sent to after user grants permission
       proxy: true
     },
     async (accessToken, refreshToken, profile, done) => {

@@ -50,8 +50,6 @@ module.exports = app => {
       })
       .value();
 
-    console.log(events);
-
     res.send({});
   });
 
