@@ -4,9 +4,9 @@ const cookieSession = require('cookie-session')
 const passport = require('passport')
 const bodyParser = require('body-parser')
 const keys = require('./config/keys')
-require('./models/User') // have to have this line before services/passport because otherwise passport won't know about the User class
+require('./models/User')
 require('./models/Survey')
-require('./services/passport') // have to run in one file b/c otherwise passport code in servies will not run
+require('./services/passport')
 // since you are not exporting anything from services passport can just require, just running the code in that file
 // services passport doesn't return anything
 mongoose.connect(keys.mongoURI)
